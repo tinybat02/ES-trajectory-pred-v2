@@ -1,0 +1,21 @@
+{
+  "type": "panel",
+  "name": "ES Traject Pred v2",
+  "id": "id-es-trajectory-for-prediction-v2",
+  "dataFormats": ["table"],
+  "info": {
+    "description": "Trajectory Prediction For Predictions",
+    "author": {
+      "name": "Nam Le"
+    },
+    "keywords": ["openlayers", "trajectory", "elasticsearch"],
+    "screenshots": [],
+    "version": "0.0.1",
+    "updated": "2020-08-05"
+  },
+
+  "dependencies": {
+    "grafanaVersion": "6.4.x",
+    "plugins": []
+  }
+}
