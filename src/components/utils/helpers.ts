@@ -26,10 +26,23 @@ export const processDataES = (data: SingleData[]) => {
     (perDeviceFloor[datum.predictions_id] = perDeviceFloor[datum.predictions_id] || []).push(datum.level);
   });
 
+  const perDeviceTime_array = Object.keys(perDeviceTime).map(id => ({
+    id,
+    duration: perDeviceTime[id].slice(-1)[0] - perDeviceTime[id][0],
+  }));
+
+  perDeviceTime_array.sort((a, b) => {
+    if (a.duration > b.duration) return -1;
+    if (a.duration < b.duration) return 1;
+    return 0;
+  });
+
+
   return {
     perDeviceRoute,
     perDeviceTime,
     perDeviceFloor,
+    selectList: perDeviceTime_array.map(elm => elm.id),
   };
 };
 

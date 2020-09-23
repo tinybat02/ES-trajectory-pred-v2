@@ -86,11 +86,11 @@ export class MainPanel extends PureComponent<Props> {
 
     if (this.props.data.series.length > 0) {
       const { buffer } = this.props.data.series[0].fields[0].values as Buffer;
-      const { perDeviceRoute, perDeviceTime, perDeviceFloor } = processDataES(buffer);
+      const { perDeviceRoute, perDeviceTime, perDeviceFloor, selectList } = processDataES(buffer);
       this.perDeviceRoute = perDeviceRoute;
       this.perDeviceTime = perDeviceTime;
       this.perDeviceFloor = perDeviceFloor;
-      this.setState({ ...this.state, options: Object.keys(this.perDeviceRoute).sort() });
+      this.setState({ ...this.state, options: selectList });
     }
   }
 
@@ -106,11 +106,11 @@ export class MainPanel extends PureComponent<Props> {
 
       const { buffer } = this.props.data.series[0].fields[0].values as Buffer;
       if (buffer.length !== 0) {
-        const { perDeviceRoute, perDeviceTime, perDeviceFloor } = processDataES(buffer);
+        const { perDeviceRoute, perDeviceTime, perDeviceFloor, selectList } = processDataES(buffer);
         this.perDeviceRoute = perDeviceRoute;
         this.perDeviceTime = perDeviceTime;
         this.perDeviceFloor = perDeviceFloor;
-        this.setState({ ...this.state, options: Object.keys(this.perDeviceRoute).sort() });
+        this.setState({ ...this.state, options: selectList });
       }
     }
 
